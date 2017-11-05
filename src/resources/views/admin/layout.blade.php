@@ -259,7 +259,7 @@
                             </form>
                             <!-- END RESPONSIVE QUICK SEARCH FORM -->
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item {{ Request::is('admin/dashboard*') ? 'active' : '' }} ">
                             <a href="{{asset('admin.dashboard')}}" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
