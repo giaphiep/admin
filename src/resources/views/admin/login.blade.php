@@ -16,7 +16,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('vendor/assets/css/AdminLTE.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{asset('vendor/assets/plugins/iCheck/square/blue.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/assets/css/blue.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,11 +75,11 @@
     </div><!-- /.login-box -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="{{asset('vendor/assets/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
+    <script src="{{asset('vendor/assets/js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('vendor/assets/js/bootstrap.min.js')}}"></script>
     <!-- iCheck -->
-    <script src="{{asset('vendor/assets/plugins/iCheck/icheck.min.js')}}"></script>
+    <script src="{{asset('vendor/assets/js/icheck.min.js')}}"></script>
     <script>
       $(function () {
         $('input').iCheck({
