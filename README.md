@@ -24,6 +24,7 @@ GiapHiep\Admin\AdminServiceProvider::class,
 ```
 2. In Kernel.php file, add the following to the routeMiddleware array
 ``` php
+'admin.guest' => \GiapHiep\Admin\Middleware\RedirectIfAdminAuthenticated::class,
 'admin.auth' => \GiapHiep\Admin\Middleware\AdminAuthenticate::class,
 ```
 3. Run
