@@ -40,7 +40,7 @@
         <link href="{{asset('vendor/assets/css/toastr.min.css')}}" rel="stylesheet" />
 
         <!-- END THEME LAYOUT STYLES -->
-        <!-- <link rel="shortcut icon" href="{{URL::asset('images/logo.png')}}" />  -->
+        <!-- <link rel="shortcut icon" href="" />  -->
         <link rel="stylesheet" href="{{asset('vendor/assets/css/datatables.bootstrap.css')}}">
         <!-- <link rel="stylesheet" type="text/css" href="{{url('css/prism.css')}}"> -->
         <style>
