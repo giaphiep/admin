@@ -42,7 +42,7 @@
         <!-- END THEME LAYOUT STYLES -->
         <!-- <link rel="shortcut icon" href="" />  -->
         <link rel="stylesheet" href="{{asset('vendor/assets/css/datatables.bootstrap.css')}}">
-        <!-- <link rel="stylesheet" type="text/css" href="{{url('css/prism.css')}}"> -->
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/assets/css/prism.css')}}">
         <style>
             .page-content-white .page-content .page-bar {
                 border-bottom: none;
@@ -266,11 +266,18 @@
                             </a>
                         </li>
                         
-                        @yield('menu-acl')
+                        @if(View::exists('vendor.giaphiep.acl.menu'))
+						    @include('vendor.giaphiep.acl.menu')
+						@endif
+						
+						@if(View::exists('vendor.giaphiep.post.menu'))
+						    @include('vendor.giaphiep.post.menu')
+						@endif
 
-                        @yield('menu-posts')
 
-                        @yield('menu-settings')
+                        @if(View::exists('vendor.giaphiep.setting.menu'))
+						    @include('vendor.giaphiep.setting.menu')
+						@endif
 
                     </ul>
                     <!-- END SIDEBAR MENU -->
