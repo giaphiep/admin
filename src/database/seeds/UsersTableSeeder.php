@@ -12,11 +12,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-        	'name' => 'Admin',
-        	'email' => 'admin@admin.com',
-        	'password' => bcrypt('111111'),
-        	'is_admin' => 1
-        ]);
+    	if (!User::where('email','admin@admin.com')->count()) {
+    		User::create([
+	        	'name' => 'Admin',
+	        	'email' => 'admin@admin.com',
+	        	'password' => bcrypt('111111'),
+	        	'is_admin' => 1
+	        ]);
+    	}
+        
     }
 }
