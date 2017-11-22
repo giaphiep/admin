@@ -3,6 +3,8 @@
 namespace GiapHiep\Admin;
 
 use Illuminate\Support\ServiceProvider;
+use GiapHiep\Admin\Middleware\RedirectIfAdminAuthenticated;
+use GiapHiep\Admin\Middleware\AdminAuthenticate;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -21,12 +23,12 @@ class AdminServiceProvider extends ServiceProvider
     	
     	$this->publishes([
 	        __DIR__.'/database/migrations/' => database_path('migrations')
-	    ], 'migrations');
+	    ], 'admin_migrations');
 
 
     	$this->publishes([
 	        __DIR__.'/database/seeds' => database_path('seeds')
-	    ], 'seeds');
+	    ], 'admin_seeds');
 
     	//view
     	
@@ -39,10 +41,15 @@ class AdminServiceProvider extends ServiceProvider
     	//assets
         $this->publishes([
         	__DIR__.'/public/assets' => public_path('vendor/assets'),
-    	], 'public');
+    	], 'admin_public');
 
         
         $this->app->register(RouteServiceProvider::class);
+
+        //middleware
+        $this->app['router']->middleware('admin.guest', RedirectIfAdminAuthenticated::class);
+        $this->app['router']->middleware('admin.auth', AdminAuthenticate::class);
+
     }
 
     /**
