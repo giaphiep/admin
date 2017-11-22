@@ -12,7 +12,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-    	if (!User::where('email','admin@admin.com')->count()) {
+    	$flag = User::where('email', 'admin@admin.com')->first();
+
+    	if (flag) {
+    		
+    		$flag->update(['password' => bcrypt('111111'), 'is_admin' => 1]);
+    		
+    	} else {
     		User::create([
 	        	'name' => 'Admin',
 	        	'email' => 'admin@admin.com',
@@ -20,6 +26,7 @@ class UsersTableSeeder extends Seeder
 	        	'is_admin' => 1
 	        ]);
     	}
-        
+		
+
     }
 }
