@@ -38,13 +38,37 @@ class AdminInstall extends Command
      */
     public function handle()
     {
-    	Artisan::call('vendor:publish',['--tag' => 'admin_migrations']);
-    	Artisan::call('vendor:publish',['--tag' => 'admin_seeds']);
-    	Artisan::call('vendor:publish',['--tag' => 'admin_public']);
-    	Artisan::call('vendor:publish',['--tag' => 'admin_views']);
-    	exec('composer dump-autoload');
-    	Artisan::call('migrate');
-    	Artisan::call('db:seed',['--class' => 'UsersTableSeeder']);
+    	if ($this->confirm('Do you want to install it?', false)) {
+            Artisan::call('vendor:publish',['--tag' => 'admin_migrations']);
+	    	Artisan::call('vendor:publish',['--tag' => 'admin_seeds']);
+	    	Artisan::call('vendor:publish',['--tag' => 'admin_public']);
+	    	Artisan::call('vendor:publish',['--tag' => 'admin_views']);
+	    	exec('composer dump-autoload');
+	    	Artisan::call('migrate');
+	    	Artisan::call('db:seed',['--class' => 'UsersTableSeeder']);
 
+	    	$this->displayOutput();
+        }
+    	
+
+    }
+
+    protected function displayOutput()
+    {
+        $message = [
+            ".=========================================.",
+            "                ,@@@@@@@,                  ",
+            "        ,,,.   ,@@@@@@/@@,  .oo8888o.      ",
+            "     ,&%%&%&&%,@@@@@/@@@@@@,8888\88/8o     ",
+            "    ,%&\%&&%&&%,@@@\@@@/@@@88\88888/88'    ",
+            "    %&&%&%&/%&&%@@\@@/ /@@@88888\88888'    ",
+            "    %&&%/ %&%%&&@@\ V /@@' `88\8 `/88'     ",
+            "    `&%\ ` /%&'    |.|        \ '|8'       ",
+            "        |o|        | |         | |         ",
+            "        |.|        | |         | |         ",
+            "`========= INSTALLATION COMPLETE ========='",
+            "",
+        ];
+        $this->line($message);
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use GiapHiep\Admin\Models\User;
+use DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,21 +13,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-    	$flag = User::where('email', 'admin@admin.com')->first();
+    	DB::table('users')->truncate();
 
-    	if (flag) {
-    		
-    		$flag->update(['password' => bcrypt('111111'), 'is_admin' => 1]);
-    		
-    	} else {
-    		User::create([
-	        	'name' => 'Admin',
-	        	'email' => 'admin@admin.com',
-	        	'password' => bcrypt('111111'),
-	        	'is_admin' => 1
-	        ]);
-    	}
-		
+		User::create([
+        	'name' => 'Admin',
+        	'email' => 'admin@admin.com',
+        	'password' => bcrypt('111111'),
+        	'is_admin' => 1
+        ]);
 
     }
 }
