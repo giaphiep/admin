@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use GiapHiep\Admin\Models\User;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
